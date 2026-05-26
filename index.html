@@ -1048,12 +1048,8 @@
 
 <div class="app">
 
-  <!-- ============================== -->
-  <!-- ======== LANDING PAGE ======== -->
-  <!-- ============================== -->
   <div id="landing" class="page active">
 
-    <!-- HERO -->
     <section class="hero">
       <div class="hero-content">
         <div class="brand-mark">Our <span class="heart">♡</span> page</div>
@@ -1061,8 +1057,8 @@
 
         <div class="divider-deco">♡</div>
 
-        <h1 class="hero-title">한 번의 자리,<br><span class="em">여러 번의</span> 셀렘</h1>
-        <p class="hero-sub">— 셀렘의 첫 페이지, ourpage —</p>
+        <h1 class="hero-title">한 번의 자리,<br><span class="em">여러 번의</span> 설렘</h1>
+        <p class="hero-sub">— 설렘의 첫 페이지, ourpage —</p>
 
         <div class="hero-date">
           NEXT EVENT <span class="dot">·</span> 6월 21일 (일)
@@ -1075,7 +1071,6 @@
       </div>
     </section>
 
-    <!-- TAB NAVIGATION -->
     <nav class="tab-nav">
       <div class="tab-scroll" id="tabScroll">
         <button class="tab-item active" data-target="sec-about"><span class="tab-num">01</span>소개</button>
@@ -1087,7 +1082,6 @@
       </div>
     </nav>
 
-    <!-- CONCEPT -->
     <section class="section" id="sec-about">
       <div class="section-header">
         <div class="section-eyebrow">— About Us</div>
@@ -1111,7 +1105,6 @@
       </div>
     </section>
 
-    <!-- SCHEDULE -->
     <section class="section" id="sec-schedule">
       <div class="section-header">
         <div class="section-eyebrow">— Schedule</div>
@@ -1143,7 +1136,6 @@
       </div>
     </section>
 
-    <!-- STYLE VERIFICATION -->
     <section class="section verify-section" id="sec-verify">
       <div class="section-header">
         <div class="section-eyebrow">— Verification</div>
@@ -1184,7 +1176,6 @@
       </div>
     </section>
 
-    <!-- PROCESS -->
     <section class="section" id="sec-process">
       <div class="section-header">
         <div class="section-eyebrow">— How It Works</div>
@@ -1226,7 +1217,6 @@
       </div>
     </section>
 
-    <!-- CONDITIONS -->
     <section class="section verify-section" id="sec-eligibility">
       <div class="section-header">
         <div class="section-eyebrow">— Eligibility</div>
@@ -1259,7 +1249,6 @@
     </section>
 
 
-    <!-- PRICING -->
     <section class="section verify-section" id="sec-pricing">
       <div class="section-header">
         <div class="section-eyebrow">— Participation Fee</div>
@@ -1295,7 +1284,6 @@
       </div>
     </section>
 
-    <!-- NOTICE -->
     <section class="section">
       <div class="notice">
         <p><span class="icon">!</span><strong>환불 및 일정 변경 안내</strong></p>
@@ -1307,7 +1295,6 @@
       </div>
     </section>
 
-    <!-- CTA -->
     <section class="cta-section">
       <button class="cta-button" onclick="goToForm()">
         프리미엄 신청서 작성하기
@@ -1319,7 +1306,6 @@
       </p>
     </section>
 
-    <!-- FOOTER -->
     <footer class="footer-brand">
       <div class="footer-mark">Our ♡ page</div>
       <div class="footer-tag">PREMIUM MATCHMAKING</div>
@@ -1332,9 +1318,6 @@
 
   </div>
 
-  <!-- =========================== -->
-  <!-- ======== FORM PAGE ======== -->
-  <!-- =========================== -->
   <div id="form-page" class="page">
 
     <div class="form-header">
@@ -1355,7 +1338,6 @@
 
       <form id="applicationForm">
 
-        <!-- Section 1: Schedule -->
         <div class="form-section">
           <div class="form-section-header">
             <div class="form-section-num">1</div>
@@ -1366,23 +1348,22 @@
             <div class="q-label">참석 희망 일자 <span class="required">*</span></div>
             <div class="q-hint">복수 선택 가능합니다</div>
             <div class="radio-group">
-              <label class="radio-option"><input type="radio" name="date"><span class="radio-label">[90~95] 6/21 일요일 오후 12시</span></label>
-              <label class="radio-option"><input type="radio" name="date"><span class="radio-label">[93~98] 6/21 일요일 오후 3시</span></label>
-              <label class="radio-option"><input type="radio" name="date"><span class="radio-label">[97~02] 6/21 일요일 오후 6시</span></label>
-              <label class="radio-option"><input type="radio" name="date"><span class="radio-label">일정 상관없음</span></label>
+              <label class="radio-option"><input type="radio" name="date" value="6/21 12시"><span class="radio-label">[90~95] 6/21 일요일 오후 12시</span></label>
+              <label class="radio-option"><input type="radio" name="date" value="6/21 15시"><span class="radio-label">[93~98] 6/21 일요일 오후 3시</span></label>
+              <label class="radio-option"><input type="radio" name="date" value="6/21 18시"><span class="radio-label">[97~02] 6/21 일요일 오후 6시</span></label>
+              <label class="radio-option"><input type="radio" name="date" value="일정 상관없음"><span class="radio-label">일정 상관없음</span></label>
             </div>
           </div>
 
           <div class="form-question">
             <div class="q-label">참석 유형 <span class="required">*</span></div>
             <div class="radio-group">
-              <label class="radio-option"><input type="radio" name="type"><span class="radio-label">신규 참석</span></label>
-              <label class="radio-option"><input type="radio" name="type"><span class="radio-label">재참석</span></label>
+              <label class="radio-option"><input type="radio" name="type" value="신규 참석"><span class="radio-label">신규 참석</span></label>
+              <label class="radio-option"><input type="radio" name="type" value="재참석"><span class="radio-label">재참석</span></label>
             </div>
           </div>
         </div>
 
-        <!-- Section 2: Basic Info -->
         <div class="form-section">
           <div class="form-section-header">
             <div class="form-section-num">2</div>
@@ -1392,43 +1373,42 @@
           <div class="form-question">
             <div class="q-label">성별 <span class="required">*</span></div>
             <div class="radio-group">
-              <label class="radio-option"><input type="radio" name="gender"><span class="radio-label">남성</span></label>
-              <label class="radio-option"><input type="radio" name="gender"><span class="radio-label">여성</span></label>
+              <label class="radio-option"><input type="radio" name="gender" value="남성"><span class="radio-label">남성</span></label>
+              <label class="radio-option"><input type="radio" name="gender" value="여성"><span class="radio-label">여성</span></label>
             </div>
           </div>
 
           <div class="form-question">
             <div class="q-label">이름 <span class="required">*</span></div>
             <div class="q-hint">예시) 강○○</div>
-            <input type="text" class="q-input" placeholder="이름을 입력해주세요">
+            <input type="text" class="q-input" name="userName" placeholder="이름을 입력해주세요">
           </div>
 
           <div class="form-question">
             <div class="q-label">출생연도 <span class="required">*</span></div>
             <div class="q-hint">예시) 1993</div>
-            <input type="number" class="q-input" placeholder="숫자만 입력 가능합니다">
+            <input type="number" class="q-input" name="birthYear" placeholder="숫자만 입력 가능합니다">
           </div>
 
           <div class="form-question">
             <div class="q-label">연락처 / 카카오톡 ID <span class="required">*</span></div>
             <div class="q-hint warn">잘못 적으시면 연락이 불가하니 확인 부탁드립니다</div>
-            <input type="text" class="q-input" placeholder="010-0000-0000 / ourpage">
+            <input type="text" class="q-input" name="contact" placeholder="010-0000-0000 / ourpage">
           </div>
 
           <div class="form-question">
             <div class="q-label">거주 지역 <span class="required">*</span></div>
             <div class="q-hint">예시) 대구 남구</div>
-            <input type="text" class="q-input" placeholder="거주 지역을 입력해주세요">
+            <input type="text" class="q-input" name="location" placeholder="거주 지역을 입력해주세요">
           </div>
 
           <div class="form-question">
             <div class="q-label">키 (cm) <span class="required">*</span></div>
             <div class="q-hint">매칭 진행 시 중요한 기준입니다. 사실에 기반해 작성해주세요.</div>
-            <input type="number" class="q-input" placeholder="예시) 175">
+            <input type="number" class="q-input" name="height" placeholder="예시) 175">
           </div>
         </div>
 
-        <!-- Section 3: Career -->
         <div class="form-section">
           <div class="form-section-header">
             <div class="form-section-num">3</div>
@@ -1438,23 +1418,22 @@
           <div class="form-question">
             <div class="q-label">직장명 / 사업체명 <span class="required">*</span></div>
             <div class="q-hint">예시) 삼성전자 / 과장, OO카페 운영</div>
-            <input type="text" class="q-input" placeholder="직장명과 직책을 입력해주세요">
+            <input type="text" class="q-input" name="job" placeholder="직장명과 직책을 입력해주세요">
           </div>
 
           <div class="form-question">
             <div class="q-label">최종 학력 <span class="required">*</span></div>
             <div class="radio-group">
-              <label class="radio-option"><input type="radio" name="edu"><span class="radio-label">고졸</span></label>
-              <label class="radio-option"><input type="radio" name="edu"><span class="radio-label">전문대졸</span></label>
-              <label class="radio-option"><input type="radio" name="edu"><span class="radio-label">3년제 대졸</span></label>
-              <label class="radio-option"><input type="radio" name="edu"><span class="radio-label">4년제 대졸</span></label>
-              <label class="radio-option"><input type="radio" name="edu"><span class="radio-label">석사</span></label>
-              <label class="radio-option"><input type="radio" name="edu"><span class="radio-label">박사</span></label>
+              <label class="radio-option"><input type="radio" name="edu" value="고졸"><span class="radio-label">고졸</span></label>
+              <label class="radio-option"><input type="radio" name="edu" value="전문대졸"><span class="radio-label">전문대졸</span></label>
+              <label class="radio-option"><input type="radio" name="edu" value="3년제 대졸"><span class="radio-label">3년제 대졸</span></label>
+              <label class="radio-option"><input type="radio" name="edu" value="4년제 대졸"><span class="radio-label">4년제 대졸</span></label>
+              <label class="radio-option"><input type="radio" name="edu" value="석사"><span class="radio-label">석사</span></label>
+              <label class="radio-option"><input type="radio" name="edu" value="박사"><span class="radio-label">박사</span></label>
             </div>
           </div>
         </div>
 
-        <!-- Section 4: Verification Photos -->
         <div class="form-section">
           <div class="form-section-header">
             <div class="form-section-num">4</div>
@@ -1469,7 +1448,7 @@
               <div class="file-upload-icon">⬆</div>
               <div class="file-upload-text">사진 첨부 (최대 3개)</div>
               <div class="file-upload-meta">jpg, jpeg, png · 최대 10mb</div>
-              <input type="file" hidden accept="image/*" multiple>
+              <input type="file" name="idCardFile" hidden accept="image/*" multiple>
             </label>
           </div>
 
@@ -1480,7 +1459,7 @@
               <div class="file-upload-icon">⬆</div>
               <div class="file-upload-text">사진 첨부 (최대 3개)</div>
               <div class="file-upload-meta">jpg, jpeg, png · 최대 10mb</div>
-              <input type="file" hidden accept="image/*" multiple>
+              <input type="file" name="jobVerifyFile" hidden accept="image/*" multiple>
             </label>
           </div>
 
@@ -1491,12 +1470,11 @@
               <div class="file-upload-icon">⬆</div>
               <div class="file-upload-text">사진 첨부 (최대 2개)</div>
               <div class="file-upload-meta">jpg, jpeg, png · 최대 10mb</div>
-              <input type="file" hidden accept="image/*" multiple>
+              <input type="file" name="photoFile" hidden accept="image/*" multiple>
             </label>
           </div>
         </div>
 
-        <!-- Section 5: Preferences -->
         <div class="form-section">
           <div class="form-section-header">
             <div class="form-section-num">5</div>
@@ -1506,46 +1484,45 @@
           <div class="form-question">
             <div class="q-label">선호하는 이성 나이대 <span class="required">*</span></div>
             <div class="q-hint">예시) 95~00, 97~02</div>
-            <input type="text" class="q-input" placeholder="답변을 입력해주세요">
+            <input type="text" class="q-input" name="prefAge" placeholder="답변을 입력해주세요">
           </div>
 
           <div class="form-question">
             <div class="q-label">자기소개 (선택)</div>
             <div class="q-hint">성격 및 연애 스타일 / 평소 취미와 일상<br>쉬는 날 보내는 방식 / 원하는 관계의 분위기</div>
-            <textarea class="q-textarea" placeholder="자유롭게 자신을 소개해주세요"></textarea>
+            <textarea class="q-textarea" name="intro" placeholder="자유롭게 자신을 소개해주세요"></textarea>
           </div>
 
           <div class="form-question">
             <div class="q-label">나의 장점 / 어필 포인트 (선택)</div>
             <div class="q-hint">예시) 꾸준히 운동하고 있어요 / 대화가 잘 통한다는 이야기를 자주 들어요</div>
-            <textarea class="q-textarea" placeholder="자신의 매력을 표현해주세요"></textarea>
+            <textarea class="q-textarea" name="appeal" placeholder="자신의 매력을 표현해주세요"></textarea>
           </div>
 
           <div class="form-question">
             <div class="q-label">이상형 <span class="required">*</span></div>
             <div class="q-hint">예시) 키 175 이상, 무교, 비흡연자</div>
-            <textarea class="q-textarea" placeholder="이상형을 구체적으로 작성해주세요"></textarea>
+            <textarea class="q-textarea" name="idealType" placeholder="이상형을 구체적으로 작성해주세요"></textarea>
           </div>
 
           <div class="form-question">
             <div class="q-label">가장 덜 중요하게 생각하는 조건 <span class="required">*</span></div>
             <div class="radio-group">
-              <label class="radio-option"><input type="radio" name="leastImp"><span class="radio-label">외모</span></label>
-              <label class="radio-option"><input type="radio" name="leastImp"><span class="radio-label">키</span></label>
-              <label class="radio-option"><input type="radio" name="leastImp"><span class="radio-label">직업</span></label>
-              <label class="radio-option"><input type="radio" name="leastImp"><span class="radio-label">나이</span></label>
-              <label class="radio-option"><input type="radio" name="leastImp"><span class="radio-label">학력</span></label>
+              <label class="radio-option"><input type="radio" name="leastImp" value="외모"><span class="radio-label">외모</span></label>
+              <label class="radio-option"><input type="radio" name="leastImp" value="키"><span class="radio-label">키</span></label>
+              <label class="radio-option"><input type="radio" name="leastImp" value="직업"><span class="radio-label">직업</span></label>
+              <label class="radio-option"><input type="radio" name="leastImp" value="나이"><span class="radio-label">나이</span></label>
+              <label class="radio-option"><input type="radio" name="leastImp" value="학력"><span class="radio-label">학력</span></label>
             </div>
           </div>
 
           <div class="form-question">
             <div class="q-label">피하고 싶은 사람 (선택)</div>
             <div class="q-hint">예시) ○○년생 / 직장명 / 이름 등 상세히 기재</div>
-            <textarea class="q-textarea" placeholder="답변을 입력해주세요"></textarea>
+            <textarea class="q-textarea" name="avoidType" placeholder="답변을 입력해주세요"></textarea>
           </div>
         </div>
 
-        <!-- Section 6: Drink -->
         <div class="form-section">
           <div class="form-section-header">
             <div class="form-section-num">6</div>
@@ -1555,18 +1532,17 @@
           <div class="form-question">
             <div class="q-label">음료 선택 <span class="required">*</span></div>
             <div class="radio-group">
-              <label class="radio-option"><input type="radio" name="drink"><span class="radio-label">아메리카노 (아이스)</span></label>
-              <label class="radio-option"><input type="radio" name="drink"><span class="radio-label">아메리카노 (핫)</span></label>
-              <label class="radio-option"><input type="radio" name="drink"><span class="radio-label">오늘의 차 (아이스)</span></label>
-              <label class="radio-option"><input type="radio" name="drink"><span class="radio-label">오늘의 차 (핫)</span></label>
-              <label class="radio-option"><input type="radio" name="drink"><span class="radio-label">아이스티</span></label>
-              <label class="radio-option"><input type="radio" name="drink"><span class="radio-label">생수 (아이스)</span></label>
-              <label class="radio-option"><input type="radio" name="drink"><span class="radio-label">생수 (핫)</span></label>
+              <label class="radio-option"><input type="radio" name="drink" value="아메리카노 (아이스)"><span class="radio-label">아메리카노 (아이스)</span></label>
+              <label class="radio-option"><input type="radio" name="drink" value="아메리카노 (핫)"><span class="radio-label">아메리카노 (핫)</span></label>
+              <label class="radio-option"><input type="radio" name="drink" value="오늘의 차 (아이스)"><span class="radio-label">오늘의 차 (아이스)</span></label>
+              <label class="radio-option"><input type="radio" name="drink" value="오늘의 차 (핫)"><span class="radio-label">오늘의 차 (핫)</span></label>
+              <label class="radio-option"><input type="radio" name="drink" value="아이스티"><span class="radio-label">아이스티</span></label>
+              <label class="radio-option"><input type="radio" name="drink" value="생수 (아이스)"><span class="radio-label">생수 (아이스)</span></label>
+              <label class="radio-option"><input type="radio" name="drink" value="생수 (핫)"><span class="radio-label">생수 (핫)</span></label>
             </div>
           </div>
         </div>
 
-        <!-- Section 7: Agreement -->
         <div class="form-section">
           <div class="form-section-header">
             <div class="form-section-num">7</div>
@@ -1577,21 +1553,21 @@
             <div class="q-label">현재 법적으로 미혼이신가요? <span class="required">*</span></div>
             <div class="q-hint warn">허위 기재 시 서비스 이용 제한 및 법적 책임이 발생할 수 있습니다</div>
             <div class="radio-group">
-              <label class="radio-option"><input type="radio" name="single"><span class="radio-label">네, 미혼입니다</span></label>
+              <label class="radio-option"><input type="radio" name="single" value="네, 미혼입니다"><span class="radio-label">네, 미혼입니다</span></label>
             </div>
           </div>
 
           <div class="form-question">
             <div class="q-label">신청서 제출 후 수정 불가 동의 <span class="required">*</span></div>
             <div class="radio-group">
-              <label class="radio-option"><input type="checkbox"><span class="radio-label">작성 내용 확인 완료, 제출 후 수정 불가에 동의합니다</span></label>
+              <label class="radio-option"><input type="checkbox" name="agreeNoEdit" value="동의"><span class="radio-label">작성 내용 확인 완료, 제출 후 수정 불가에 동의합니다</span></label>
             </div>
           </div>
 
           <div class="form-question">
             <div class="q-label">외적 기준 미충족 시 가입 제한 동의 <span class="required">*</span></div>
             <div class="radio-group">
-              <label class="radio-option"><input type="checkbox"><span class="radio-label">외적 기준 및 자기관리 상태에 따라 가입이 제한될 수 있음을 이해합니다</span></label>
+              <label class="radio-option"><input type="checkbox" name="agreeAppearance" value="동의"><span class="radio-label">외적 기준 및 자기관리 상태에 따라 가입이 제한될 수 있음을 이해합니다</span></label>
             </div>
           </div>
 
@@ -1599,15 +1575,15 @@
             <div class="q-label">개인정보 제공 동의서 <span class="required">*</span></div>
             <div class="q-hint">성별, 이름, 출생연도, 연락처, 카카오톡 ID, 거주 지역, 키, 직장명, 직업, 신분증, 재직 인증 자료, 사진, 최종 학력</div>
             <div class="radio-group">
-              <label class="radio-option"><input type="checkbox"><span class="radio-label">개인정보 수집·이용에 동의합니다</span></label>
+              <label class="radio-option"><input type="checkbox" name="agreePrivacy" value="동의"><span class="radio-label">개인정보 수집·이용에 동의합니다</span></label>
             </div>
           </div>
 
           <div class="form-question">
             <div class="q-label">마케팅 정보 수신 동의 (선택)</div>
             <div class="radio-group">
-              <label class="radio-option"><input type="radio" name="marketing"><span class="radio-label">동의합니다</span></label>
-              <label class="radio-option"><input type="radio" name="marketing"><span class="radio-label">동의하지 않습니다</span></label>
+              <label class="radio-option"><input type="radio" name="marketing" value="동의합니다"><span class="radio-label">동의합니다</span></label>
+              <label class="radio-option"><input type="radio" name="marketing" value="동의하지 않습니다"><span class="radio-label">동의하지 않습니다</span></label>
             </div>
           </div>
 
@@ -1615,7 +1591,7 @@
             <div class="q-label">환불 및 일정 변경 불가 안내 <span class="required">*</span></div>
             <div class="q-hint warn">입금 완료 후 환불 어려움 / 일정 변경은 행사 3일 전까지 가능</div>
             <div class="radio-group">
-              <label class="radio-option"><input type="checkbox"><span class="radio-label">동의합니다</span></label>
+              <label class="radio-option"><input type="checkbox" name="agreeRefund" value="동의"><span class="radio-label">동의합니다</span></label>
             </div>
           </div>
 
@@ -1623,7 +1599,7 @@
             <div class="q-label">참가 확정 안내 동의 <span class="required">*</span></div>
             <div class="q-hint">신청서 검토 후 참가 확정자에게만 계좌·장소·시간 안내 문자 발송</div>
             <div class="radio-group">
-              <label class="radio-option"><input type="checkbox"><span class="radio-label">동의합니다</span></label>
+              <label class="radio-option"><input type="checkbox" name="agreeConfirm" value="동의"><span class="radio-label">동의합니다</span></label>
             </div>
           </div>
 
@@ -1631,7 +1607,7 @@
             <div class="q-label">카카오톡 안내 동의 <span class="required">*</span></div>
             <div class="q-hint">카카오톡 ID [ourpage]로 연락드립니다</div>
             <div class="radio-group">
-              <label class="radio-option"><input type="checkbox"><span class="radio-label">동의합니다</span></label>
+              <label class="radio-option"><input type="checkbox" name="agreeKakao" value="동의"><span class="radio-label">동의합니다</span></label>
             </div>
           </div>
         </div>
@@ -1640,7 +1616,7 @@
     </div>
 
     <div class="form-submit-bar">
-      <button class="submit-btn" onclick="submitForm()">신청서 제출하기</button>
+      <button type="button" class="submit-btn" onclick="submitForm()">신청서 제출하기</button>
     </div>
 
   </div>
@@ -1712,8 +1688,42 @@
     window.scrollTo(0, 0);
   }
 
-  function submitForm() {
-    alert('신청서가 접수되었습니다!\n검토 후 카카오톡 ID [ourpage]로 안내드릴게요.');
+  // --- Google Sheets Submit Function ---
+  async function submitForm() {
+    const form = document.getElementById('applicationForm');
+    const formData = new FormData(form);
+    
+    // 알려주신 웹앱 URL
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbxOiGhg6nR2KAidudT_cEXhhWLZ3zKT4vq4ZdR8YwF_DeUVJiM5BicqkDLRxGrvEjJ_/exec';
+    
+    // 제출 버튼 비활성화 (중복 클릭 방지)
+    const submitBtn = document.querySelector('.submit-btn');
+    const originalText = submitBtn.innerText;
+    submitBtn.innerText = '제출 중입니다...';
+    submitBtn.disabled = true;
+
+    try {
+      // 구글 스크립트로 POST 요청 전송
+      const response = await fetch(scriptURL, { 
+        method: 'POST', 
+        body: formData 
+      });
+      
+      if (response.ok) {
+        alert('신청서가 접수되었습니다!\n검토 후 카카오톡 ID [ourpage]로 안내드릴게요.');
+        form.reset(); 
+        goToLanding(); // 성공 시 메인 화면으로 돌아가기
+      } else {
+        alert('제출 중 문제가 발생했습니다. 잠시 후 다시 시도해주세요.');
+      }
+    } catch (error) {
+      console.error('Error!', error.message);
+      alert('네트워크 오류가 발생했습니다. 인터넷 연결을 확인해주세요.');
+    } finally {
+      // 버튼 상태 복구
+      submitBtn.innerText = originalText;
+      submitBtn.disabled = false;
+    }
   }
 
   // Form progress tracking
