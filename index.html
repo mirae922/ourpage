@@ -1,0 +1,1768 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>ourpage · 프리미엄 로테이션 소개팅</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Italianno&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Gowun+Batang:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" rel="stylesheet">
+<style>
+  :root {
+    --bg-cream: #fdf6ee;
+    --bg-card: #ffffff;
+    --bg-soft: #f5ece0;
+    --accent-tan: #c8a380;
+    --accent-deep: #8b5e3c;
+    --accent-pink: #e8b4b8;
+    --accent-rose: #c87a82;
+    --text-primary: #2d1f1a;
+    --text-secondary: #6b5f54;
+    --text-muted: #a89485;
+    --border-soft: #ead8c1;
+    --shadow-soft: 0 2px 12px rgba(139, 94, 60, 0.06);
+    --shadow-card: 0 4px 24px rgba(139, 94, 60, 0.08);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+
+  html, body {
+    font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--bg-cream);
+    color: var(--text-primary);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  body { font-size: 15px; }
+
+  .app {
+    max-width: 480px;
+    margin: 0 auto;
+    background: var(--bg-cream);
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .page { display: none; }
+  .page.active { display: block; animation: fadeIn 0.4s ease; }
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ============ LANDING PAGE ============ */
+
+  /* Hero */
+  .hero {
+    padding: 60px 28px 50px;
+    text-align: center;
+    background: linear-gradient(180deg, #fdf6ee 0%, #fbeee0 100%);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 10%;
+    right: -50px;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, var(--accent-pink) 0%, transparent 70%);
+    opacity: 0.3;
+    border-radius: 50%;
+    filter: blur(20px);
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -50px;
+    left: -50px;
+    width: 240px;
+    height: 240px;
+    background: radial-gradient(circle, var(--accent-tan) 0%, transparent 70%);
+    opacity: 0.2;
+    border-radius: 50%;
+    filter: blur(30px);
+  }
+
+  .hero-content { position: relative; z-index: 1; }
+
+  .brand-mark {
+    font-family: 'Italianno', cursive;
+    font-size: 64px;
+    color: var(--accent-deep);
+    line-height: 1;
+    margin-bottom: 4px;
+    letter-spacing: -0.01em;
+  }
+
+  .brand-mark .heart {
+    color: var(--accent-rose);
+    font-size: 28px;
+    vertical-align: middle;
+    margin: 0 4px;
+  }
+
+  .brand-tag {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 11px;
+    letter-spacing: 0.4em;
+    color: var(--accent-deep);
+    text-transform: uppercase;
+    margin-bottom: 30px;
+  }
+
+  .divider-deco {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin: 24px auto;
+    color: var(--accent-rose);
+  }
+  .divider-deco::before,
+  .divider-deco::after {
+    content: '';
+    width: 50px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--accent-tan), transparent);
+  }
+
+  .hero-title {
+    font-family: 'Gowun Batang', serif;
+    font-size: 26px;
+    font-weight: 700;
+    line-height: 1.4;
+    margin-bottom: 12px;
+    color: var(--text-primary);
+    letter-spacing: -0.02em;
+  }
+
+  .hero-title .em {
+    color: var(--accent-deep);
+    font-style: italic;
+  }
+
+  .hero-sub {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 17px;
+    color: var(--accent-deep);
+    margin-bottom: 24px;
+  }
+
+  .hero-date {
+    display: inline-block;
+    padding: 8px 18px;
+    background: rgba(232, 180, 184, 0.25);
+    border: 1px solid var(--accent-pink);
+    border-radius: 24px;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--accent-deep);
+    letter-spacing: 0.05em;
+  }
+  .hero-date .dot {
+    color: var(--accent-rose);
+    margin: 0 6px;
+  }
+
+  /* Top CTA in hero */
+  .hero-cta {
+    margin-top: 28px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 32px;
+    background: var(--text-primary);
+    color: var(--bg-cream);
+    border: none;
+    border-radius: 30px;
+    font-family: 'Pretendard', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    cursor: pointer;
+    box-shadow: 0 6px 20px rgba(45, 31, 26, 0.2);
+    transition: all 0.2s ease;
+  }
+  .hero-cta:active {
+    transform: translateY(1px);
+    box-shadow: 0 3px 10px rgba(45, 31, 26, 0.15);
+  }
+  .hero-cta .arrow { transition: transform 0.3s ease; }
+  .hero-cta:hover .arrow { transform: translateX(3px); }
+
+  /* Sticky tab navigation */
+  .tab-nav {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(253, 246, 238, 0.92);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--border-soft);
+    padding: 10px 0;
+  }
+
+  .tab-scroll {
+    display: flex;
+    gap: 4px;
+    padding: 0 20px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    scroll-behavior: smooth;
+  }
+  .tab-scroll::-webkit-scrollbar { display: none; }
+
+  .tab-item {
+    flex-shrink: 0;
+    padding: 8px 14px;
+    background: transparent;
+    border: none;
+    font-family: 'Pretendard', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-muted);
+    cursor: pointer;
+    border-radius: 20px;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .tab-item .tab-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 12px;
+    color: var(--accent-tan);
+  }
+
+  .tab-item.active {
+    background: var(--accent-deep);
+    color: #fff;
+  }
+  .tab-item.active .tab-num { color: var(--accent-pink); }
+
+  .tab-item:not(.active):hover {
+    color: var(--text-primary);
+    background: var(--bg-soft);
+  }
+
+  /* Section */
+  .section {
+    padding: 50px 28px;
+    position: relative;
+    scroll-margin-top: 60px;
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 32px;
+  }
+
+  .section-eyebrow {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 14px;
+    letter-spacing: 0.25em;
+    color: var(--accent-deep);
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+
+  .section-title {
+    font-family: 'Gowun Batang', serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--text-primary);
+    line-height: 1.35;
+    letter-spacing: -0.02em;
+  }
+
+  .section-title .accent {
+    color: var(--accent-rose);
+  }
+
+  /* Concept */
+  .concept {
+    background: var(--bg-card);
+    border-radius: 20px;
+    padding: 32px 24px;
+    box-shadow: var(--shadow-card);
+    text-align: center;
+    border: 1px solid var(--border-soft);
+  }
+
+  .concept-text {
+    font-size: 15px;
+    color: var(--text-secondary);
+    line-height: 1.8;
+    margin-bottom: 16px;
+  }
+
+  .concept-text:last-child { margin-bottom: 0; }
+
+  .concept-text strong {
+    color: var(--text-primary);
+    font-weight: 600;
+  }
+
+  .concept-quote {
+    font-family: 'Gowun Batang', serif;
+    font-style: italic;
+    font-size: 17px;
+    color: var(--accent-deep);
+    padding: 16px 0;
+    line-height: 1.6;
+    font-weight: 700;
+  }
+
+  /* Style Verification */
+  .verify-section {
+    background: linear-gradient(180deg, var(--bg-cream) 0%, var(--bg-soft) 100%);
+  }
+
+  .verify-card {
+    background: var(--bg-card);
+    border-radius: 20px;
+    padding: 28px 24px;
+    box-shadow: var(--shadow-card);
+    margin-bottom: 16px;
+    border: 1px solid var(--border-soft);
+  }
+
+  .verify-intro {
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.8;
+    margin-bottom: 20px;
+  }
+
+  .verify-intro .em {
+    color: var(--accent-rose);
+    font-weight: 600;
+  }
+
+  .verify-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .verify-item {
+    padding: 14px 0;
+    border-top: 1px solid var(--border-soft);
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+  }
+
+  .verify-item:first-child { border-top: none; padding-top: 0; }
+  .verify-item:last-child { padding-bottom: 0; }
+
+  .verify-icon {
+    width: 32px;
+    height: 32px;
+    background: var(--bg-soft);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    color: var(--accent-deep);
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 15px;
+    font-weight: 500;
+  }
+
+  .verify-content { flex: 1; }
+  .verify-label {
+    font-size: 13px;
+    color: var(--accent-deep);
+    font-weight: 600;
+    margin-bottom: 4px;
+    letter-spacing: 0.05em;
+  }
+  .verify-desc {
+    font-size: 13px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+
+  /* Process */
+  .process-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .process-step {
+    background: var(--bg-card);
+    border-radius: 16px;
+    padding: 22px 24px;
+    box-shadow: var(--shadow-soft);
+    border: 1px solid var(--border-soft);
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+  }
+
+  .step-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 28px;
+    color: var(--accent-tan);
+    line-height: 1;
+    min-width: 36px;
+    font-weight: 400;
+  }
+
+  .step-body { flex: 1; }
+  .step-title {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 4px;
+  }
+  .step-desc {
+    font-size: 13px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+
+  /* Conditions */
+  .conditions-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .cond-card {
+    background: var(--bg-card);
+    border-radius: 16px;
+    padding: 22px 18px;
+    box-shadow: var(--shadow-soft);
+    border: 1px solid var(--border-soft);
+    text-align: center;
+  }
+
+  .cond-card.male { background: linear-gradient(180deg, #ffffff 0%, #f0e6d6 100%); }
+  .cond-card.female { background: linear-gradient(180deg, #ffffff 0%, #fce4e6 100%); }
+
+  .cond-tag {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 13px;
+    color: var(--accent-deep);
+    margin-bottom: 4px;
+  }
+  .cond-card.female .cond-tag { color: var(--accent-rose); }
+
+  .cond-label {
+    font-family: 'Gowun Batang', serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 16px;
+  }
+
+  .cond-list {
+    list-style: none;
+    text-align: left;
+    font-size: 12.5px;
+    color: var(--text-secondary);
+    line-height: 1.7;
+  }
+
+  .cond-list li {
+    padding: 4px 0;
+    display: flex;
+    gap: 8px;
+  }
+  .cond-list li::before {
+    content: '·';
+    color: var(--accent-deep);
+    font-weight: 700;
+  }
+
+  /* Pricing */
+  .price-card {
+    background: linear-gradient(135deg, #fff 0%, #fdf6ee 100%);
+    border-radius: 20px;
+    padding: 32px 28px;
+    box-shadow: var(--shadow-card);
+    border: 1px solid var(--border-soft);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .price-card::before {
+    content: '';
+    position: absolute;
+    top: -40px;
+    right: -40px;
+    width: 140px;
+    height: 140px;
+    background: radial-gradient(circle, var(--accent-pink) 0%, transparent 70%);
+    opacity: 0.2;
+    border-radius: 50%;
+  }
+
+  .price-header {
+    text-align: center;
+    margin-bottom: 24px;
+    position: relative;
+  }
+
+  .price-eyebrow {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 13px;
+    letter-spacing: 0.2em;
+    color: var(--accent-deep);
+    margin-bottom: 6px;
+  }
+
+  .price-title {
+    font-family: 'Gowun Batang', serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text-primary);
+  }
+
+  .price-rows { position: relative; }
+
+  .price-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 0;
+    border-bottom: 1px dashed var(--border-soft);
+  }
+  .price-row:last-child { border-bottom: none; padding-bottom: 0; }
+  .price-row:first-child { padding-top: 0; }
+
+  .price-gender {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    color: var(--text-primary);
+    font-weight: 600;
+  }
+  .gender-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+  }
+  .gender-dot.m { background: var(--accent-deep); }
+  .gender-dot.f { background: var(--accent-rose); }
+
+  .price-amount {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--text-primary);
+  }
+  .price-amount .won {
+    font-family: 'Pretendard', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-secondary);
+    margin-left: 2px;
+  }
+
+  .price-note {
+    margin-top: 18px;
+    font-size: 11.5px;
+    color: var(--text-muted);
+    text-align: center;
+    line-height: 1.6;
+  }
+
+  /* Schedule */
+  .schedule-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .sch-item {
+    background: var(--bg-card);
+    border-radius: 14px;
+    padding: 16px 20px;
+    box-shadow: var(--shadow-soft);
+    border: 1px solid var(--border-soft);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .sch-left { display: flex; align-items: center; gap: 12px; }
+
+  .sch-age {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 13px;
+    color: var(--accent-deep);
+    background: var(--bg-soft);
+    padding: 3px 10px;
+    border-radius: 12px;
+    font-weight: 500;
+  }
+
+  .sch-time {
+    font-family: 'Gowun Batang', serif;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--text-primary);
+  }
+
+  .sch-status {
+    font-size: 11px;
+    color: var(--accent-deep);
+    font-weight: 500;
+    letter-spacing: 0.05em;
+  }
+
+  /* Notice */
+  .notice {
+    background: rgba(232, 180, 184, 0.1);
+    border: 1px solid rgba(232, 180, 184, 0.4);
+    border-radius: 14px;
+    padding: 18px 20px;
+    font-size: 12.5px;
+    color: var(--text-secondary);
+    line-height: 1.7;
+  }
+  .notice .icon {
+    color: var(--accent-rose);
+    font-weight: 700;
+    margin-right: 4px;
+  }
+  .notice strong { color: var(--text-primary); }
+
+  /* CTA */
+  .cta-section {
+    padding: 30px 28px 50px;
+    background: linear-gradient(180deg, var(--bg-cream) 0%, var(--bg-soft) 100%);
+  }
+
+  .cta-button {
+    width: 100%;
+    padding: 18px;
+    background: linear-gradient(135deg, var(--accent-deep) 0%, #6d4628 100%);
+    color: #fff;
+    border: none;
+    border-radius: 14px;
+    font-family: 'Pretendard', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    box-shadow: 0 6px 20px rgba(139, 94, 60, 0.25);
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .cta-button:active {
+    transform: translateY(1px);
+    box-shadow: 0 3px 10px rgba(139, 94, 60, 0.2);
+  }
+
+  .cta-button .arrow {
+    transition: transform 0.3s ease;
+  }
+  .cta-button:hover .arrow {
+    transform: translateX(4px);
+  }
+
+  .cta-sub {
+    text-align: center;
+    margin-top: 14px;
+    font-size: 12px;
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
+
+  /* Footer brand */
+  .footer-brand {
+    text-align: center;
+    padding: 40px 28px;
+    background: var(--text-primary);
+    color: var(--bg-cream);
+  }
+
+  .footer-mark {
+    font-family: 'Italianno', cursive;
+    font-size: 36px;
+    color: var(--bg-cream);
+    margin-bottom: 4px;
+  }
+  .footer-tag {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 10px;
+    letter-spacing: 0.4em;
+    color: var(--accent-tan);
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+  .footer-info {
+    font-size: 11px;
+    color: rgba(253, 246, 238, 0.5);
+    line-height: 1.7;
+  }
+
+  /* ============ FORM PAGE ============ */
+
+  .form-header {
+    background: var(--bg-card);
+    padding: 16px 20px;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    border-bottom: 1px solid var(--border-soft);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    box-shadow: 0 1px 0 rgba(139, 94, 60, 0.04);
+  }
+
+  .back-btn {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--bg-soft);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent-deep);
+    font-size: 18px;
+  }
+
+  .form-title {
+    font-family: 'Gowun Batang', serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text-primary);
+  }
+
+  .form-progress {
+    height: 3px;
+    background: var(--bg-soft);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .form-progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, var(--accent-tan), var(--accent-rose));
+    width: 0%;
+    transition: width 0.3s ease;
+  }
+
+  .form-content {
+    padding: 28px 24px 120px;
+  }
+
+  .form-intro {
+    text-align: center;
+    margin-bottom: 32px;
+    padding: 24px 20px;
+    background: var(--bg-card);
+    border-radius: 16px;
+    border: 1px solid var(--border-soft);
+  }
+
+  .form-intro-title {
+    font-family: 'Gowun Batang', serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+  }
+
+  .form-intro-sub {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 14px;
+    color: var(--accent-deep);
+  }
+
+  .form-section {
+    margin-bottom: 32px;
+  }
+
+  .form-section-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 18px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border-soft);
+  }
+
+  .form-section-num {
+    width: 24px;
+    height: 24px;
+    background: var(--accent-deep);
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 600;
+    font-family: 'Cormorant Garamond', serif;
+  }
+
+  .form-section-title {
+    font-family: 'Gowun Batang', serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text-primary);
+  }
+
+  .form-question {
+    background: var(--bg-card);
+    border-radius: 14px;
+    padding: 20px;
+    margin-bottom: 12px;
+    border: 1px solid var(--border-soft);
+  }
+
+  .q-label {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 4px;
+    display: flex;
+    align-items: baseline;
+    gap: 4px;
+  }
+
+  .q-label .required {
+    color: var(--accent-rose);
+    font-size: 12px;
+  }
+
+  .q-hint {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-bottom: 12px;
+    line-height: 1.5;
+  }
+
+  .q-hint.warn {
+    color: var(--accent-rose);
+    font-weight: 500;
+  }
+
+  .q-input,
+  .q-textarea {
+    width: 100%;
+    padding: 12px 14px;
+    background: var(--bg-cream);
+    border: 1px solid var(--border-soft);
+    border-radius: 10px;
+    font-family: 'Pretendard', sans-serif;
+    font-size: 14px;
+    color: var(--text-primary);
+    -webkit-appearance: none;
+    appearance: none;
+  }
+
+  .q-input:focus,
+  .q-textarea:focus {
+    outline: none;
+    border-color: var(--accent-deep);
+    background: #fff;
+  }
+
+  .q-textarea {
+    resize: vertical;
+    min-height: 80px;
+    font-family: 'Pretendard', sans-serif;
+  }
+
+  .radio-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .radio-option {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 14px;
+    background: var(--bg-cream);
+    border: 1px solid var(--border-soft);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .radio-option:has(input:checked),
+  .radio-option.checked {
+    background: rgba(200, 163, 128, 0.12);
+    border-color: var(--accent-tan);
+  }
+
+  .radio-option input {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    border: 2px solid var(--border-soft);
+    border-radius: 50%;
+    position: relative;
+    cursor: pointer;
+    flex-shrink: 0;
+  }
+
+  .radio-option input:checked {
+    border-color: var(--accent-deep);
+  }
+
+  .radio-option input:checked::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 8px;
+    height: 8px;
+    background: var(--accent-deep);
+    border-radius: 50%;
+  }
+
+  .radio-label {
+    font-size: 14px;
+    color: var(--text-primary);
+    flex: 1;
+  }
+
+  .checkbox-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .file-upload {
+    border: 2px dashed var(--border-soft);
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    background: var(--bg-cream);
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  .file-upload:hover { border-color: var(--accent-tan); background: rgba(200, 163, 128, 0.05); }
+
+  .file-upload-icon {
+    font-size: 24px;
+    color: var(--accent-tan);
+    margin-bottom: 6px;
+  }
+  .file-upload-text {
+    font-size: 13px;
+    color: var(--text-secondary);
+  }
+  .file-upload-meta {
+    font-size: 11px;
+    color: var(--text-muted);
+    margin-top: 6px;
+  }
+
+  .form-submit-bar {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 480px;
+    padding: 16px 24px 24px;
+    background: rgba(253, 246, 238, 0.95);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-top: 1px solid var(--border-soft);
+    z-index: 20;
+  }
+
+  .submit-btn {
+    width: 100%;
+    padding: 16px;
+    background: linear-gradient(135deg, var(--accent-deep) 0%, #6d4628 100%);
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    font-family: 'Pretendard', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 4px 16px rgba(139, 94, 60, 0.2);
+  }
+
+  .submit-btn:disabled {
+    background: var(--text-muted);
+    cursor: not-allowed;
+    box-shadow: none;
+  }
+
+  /* Floating decorations */
+  .deco-heart {
+    position: absolute;
+    color: var(--accent-pink);
+    opacity: 0.4;
+    font-size: 14px;
+    pointer-events: none;
+  }
+
+  /* Scroll indicator removed for cleanliness */
+
+  /* Small screen tweaks */
+  @media (max-width: 380px) {
+    .brand-mark { font-size: 56px; }
+    .hero-title { font-size: 22px; }
+    .section-title { font-size: 20px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="app">
+
+  <!-- ============================== -->
+  <!-- ======== LANDING PAGE ======== -->
+  <!-- ============================== -->
+  <div id="landing" class="page active">
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-content">
+        <div class="brand-mark">Our <span class="heart">♡</span> page</div>
+        <div class="brand-tag">PREMIUM MATCHMAKING</div>
+
+        <div class="divider-deco">♡</div>
+
+        <h1 class="hero-title">한 번의 자리,<br><span class="em">여러 번의</span> 셀렘</h1>
+        <p class="hero-sub">— 셀렘의 첫 페이지, ourpage —</p>
+
+        <div class="hero-date">
+          NEXT EVENT <span class="dot">·</span> 6월 21일 (일)
+        </div>
+
+        <br>
+        <button class="hero-cta" onclick="goToForm()">
+          지금 신청하기 <span class="arrow">→</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- TAB NAVIGATION -->
+    <nav class="tab-nav">
+      <div class="tab-scroll" id="tabScroll">
+        <button class="tab-item active" data-target="sec-about"><span class="tab-num">01</span>소개</button>
+        <button class="tab-item" data-target="sec-schedule"><span class="tab-num">02</span>회차 일정</button>
+        <button class="tab-item" data-target="sec-verify"><span class="tab-num">03</span>스타일 검증</button>
+        <button class="tab-item" data-target="sec-process"><span class="tab-num">04</span>진행 방식</button>
+        <button class="tab-item" data-target="sec-eligibility"><span class="tab-num">05</span>참가 조건</button>
+        <button class="tab-item" data-target="sec-pricing"><span class="tab-num">06</span>참가 비용</button>
+      </div>
+    </nav>
+
+    <!-- CONCEPT -->
+    <section class="section" id="sec-about">
+      <div class="section-header">
+        <div class="section-eyebrow">— About Us</div>
+        <h2 class="section-title">우리가 만남을<br>준비하는 방식</h2>
+      </div>
+
+      <div class="concept">
+        <p class="concept-text">
+          ourpage는<br>
+          <strong>신원 인증 기반</strong>으로 운영되는<br>
+          <strong>프리미엄 소개팅</strong>입니다.
+        </p>
+        <p class="concept-quote">
+          "한 번의 만남도<br>좋은 인연이 될 수 있도록"
+        </p>
+        <p class="concept-text">
+          가볍고 소비되는 만남보다,<br>
+          분위기와 대화의 결을<br>
+          더 중요하게 생각합니다.
+        </p>
+      </div>
+    </section>
+
+    <!-- SCHEDULE -->
+    <section class="section" id="sec-schedule">
+      <div class="section-header">
+        <div class="section-eyebrow">— Schedule</div>
+        <h2 class="section-title">6월 21일 (일)<br>진행 회차</h2>
+      </div>
+
+      <div class="schedule-list">
+        <div class="sch-item">
+          <div class="sch-left">
+            <span class="sch-age">90~95</span>
+            <span class="sch-time">오후 12시</span>
+          </div>
+          <span class="sch-status">모집 중</span>
+        </div>
+        <div class="sch-item">
+          <div class="sch-left">
+            <span class="sch-age">93~98</span>
+            <span class="sch-time">오후 3시</span>
+          </div>
+          <span class="sch-status">모집 중</span>
+        </div>
+        <div class="sch-item">
+          <div class="sch-left">
+            <span class="sch-age">97~02</span>
+            <span class="sch-time">오후 6시</span>
+          </div>
+          <span class="sch-status">모집 중</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- STYLE VERIFICATION -->
+    <section class="section verify-section" id="sec-verify">
+      <div class="section-header">
+        <div class="section-eyebrow">— Verification</div>
+        <h2 class="section-title">ourpage만의<br><span class="accent">스타일 검증 제도</span></h2>
+      </div>
+
+      <div class="verify-card">
+        <p class="verify-intro">
+          서류상의 조건만이 아닌,<br>
+          오프라인 소개팅에서 가장 중요한
+          <span class="em">'첫인상의 호감도'</span>와
+          <span class="em">'세련된 자기관리 능력'</span>을 함께 확인합니다.
+        </p>
+
+        <ul class="verify-list">
+          <li class="verify-item">
+            <div class="verify-icon">i</div>
+            <div class="verify-content">
+              <div class="verify-label">EXTERIOR</div>
+              <div class="verify-desc">호감을 주는 단정한 인상과 옷차림</div>
+            </div>
+          </li>
+          <li class="verify-item">
+            <div class="verify-icon">ii</div>
+            <div class="verify-content">
+              <div class="verify-label">HEIGHT</div>
+              <div class="verify-desc">남 177cm 이상 / 여 163cm 이상 (선호 기준)</div>
+            </div>
+          </li>
+          <li class="verify-item">
+            <div class="verify-icon">iii</div>
+            <div class="verify-content">
+              <div class="verify-label">PRIVATE INVITATION</div>
+              <div class="verify-desc">검증 통과 시 프라이빗 초대장 개별 발송<br>(미선정 시 별도 안내 없음)</div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- PROCESS -->
+    <section class="section" id="sec-process">
+      <div class="section-header">
+        <div class="section-eyebrow">— How It Works</div>
+        <h2 class="section-title">진행 방식</h2>
+      </div>
+
+      <div class="process-grid">
+        <div class="process-step">
+          <div class="step-num">01</div>
+          <div class="step-body">
+            <div class="step-title">신청서 제출</div>
+            <div class="step-desc">선착순이 아닌 승인제로 운영됩니다.<br>참가자 간 분위기와 밸런스를 고려해 한 분 한 분 신중하게 선정합니다.</div>
+          </div>
+        </div>
+
+        <div class="process-step">
+          <div class="step-num">02</div>
+          <div class="step-body">
+            <div class="step-title">로테이션 소개팅</div>
+            <div class="step-desc">남녀 5~10명이 12~15분 간격으로 1:1 대화를 나눕니다. 짧지도, 길지도 않은 자연스러운 시간으로 구성되어 있어요.</div>
+          </div>
+        </div>
+
+        <div class="process-step">
+          <div class="step-num">03</div>
+          <div class="step-body">
+            <div class="step-title">마음 표현 쪽지</div>
+            <div class="step-desc">모든 대화가 끝난 후 마음에 드는 상대 2명을 선택해 짧은 쪽지를 작성합니다.</div>
+          </div>
+        </div>
+
+        <div class="process-step">
+          <div class="step-num">04</div>
+          <div class="step-body">
+            <div class="step-title">매칭 결과 전달</div>
+            <div class="step-desc">행사 종료 후 약 2시간 이내, 선택된 상대방에게 쪽지가 전달됩니다.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONDITIONS -->
+    <section class="section verify-section" id="sec-eligibility">
+      <div class="section-header">
+        <div class="section-eyebrow">— Eligibility</div>
+        <h2 class="section-title">참가 조건</h2>
+      </div>
+
+      <div class="conditions-grid">
+        <div class="cond-card male">
+          <div class="cond-tag">— for him</div>
+          <div class="cond-label">남성 회원</div>
+          <ul class="cond-list">
+            <li>1990 ~ 2002년생</li>
+            <li>173cm 이상</li>
+            <li>직장인 · 사업가<br>전문직 · 자영업</li>
+            <li>기본 매너와<br>자기관리를 갖춘 분</li>
+          </ul>
+        </div>
+
+        <div class="cond-card female">
+          <div class="cond-tag">— for her</div>
+          <div class="cond-label">여성 회원</div>
+          <ul class="cond-list">
+            <li>1990 ~ 2002년생</li>
+            <li>153cm 이상</li>
+            <li>직장인 · 사업가<br>전문직 · 자영업</li>
+            <li>기본 매너와<br>자기관리를 갖춘 분</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- PRICING -->
+    <section class="section verify-section" id="sec-pricing">
+      <div class="section-header">
+        <div class="section-eyebrow">— Participation Fee</div>
+        <h2 class="section-title">참가 비용</h2>
+      </div>
+
+      <div class="price-card">
+        <div class="price-header">
+          <div class="price-eyebrow">— ALL-INCLUSIVE</div>
+          <div class="price-title">장소 · 음료 · 다과 포함</div>
+        </div>
+
+        <div class="price-rows">
+          <div class="price-row">
+            <div class="price-gender">
+              <span class="gender-dot m"></span>
+              남성 회원
+            </div>
+            <div class="price-amount">50,000<span class="won">원</span></div>
+          </div>
+          <div class="price-row">
+            <div class="price-gender">
+              <span class="gender-dot f"></span>
+              여성 회원
+            </div>
+            <div class="price-amount">35,000<span class="won">원</span></div>
+          </div>
+        </div>
+
+        <p class="price-note">
+          참가 확정자에게만 계좌 · 장소 · 시간 안내 문자 발송
+        </p>
+      </div>
+    </section>
+
+    <!-- NOTICE -->
+    <section class="section">
+      <div class="notice">
+        <p><span class="icon">!</span><strong>환불 및 일정 변경 안내</strong></p>
+        <br>
+        · 입금 완료 후에는 환불이 어렵습니다.<br>
+        · 일정 변경은 행사 3일 전까지 가능합니다.<br>
+        · 무단 불참 시 이후 프로그램 참여가 제한될 수 있습니다.<br>
+        · 최소 인원(5:5) 미달 시 전액 환불 처리됩니다.
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+      <button class="cta-button" onclick="goToForm()">
+        프리미엄 신청서 작성하기
+        <span class="arrow">→</span>
+      </button>
+      <p class="cta-sub">
+        승인제로 운영됩니다 · 약 5분 소요<br>
+        문의 카카오톡 ID : ourpage
+      </p>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer-brand">
+      <div class="footer-mark">Our ♡ page</div>
+      <div class="footer-tag">PREMIUM MATCHMAKING</div>
+      <div class="footer-info">
+        © ourpage<br>
+        Premium Rotation Matchmaking for 2030<br>
+        Daegu, Korea
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- =========================== -->
+  <!-- ======== FORM PAGE ======== -->
+  <!-- =========================== -->
+  <div id="form-page" class="page">
+
+    <div class="form-header">
+      <button class="back-btn" onclick="goToLanding()">‹</button>
+      <div class="form-title">아워페이지 신청서 (6/21)</div>
+    </div>
+
+    <div class="form-progress">
+      <div class="form-progress-bar" id="progressBar"></div>
+    </div>
+
+    <div class="form-content">
+
+      <div class="form-intro">
+        <div class="form-intro-title">신청서 작성 안내</div>
+        <div class="form-intro-sub">— 5분만 시간 내어 주세요 —</div>
+      </div>
+
+      <form id="applicationForm">
+
+        <!-- Section 1: Schedule -->
+        <div class="form-section">
+          <div class="form-section-header">
+            <div class="form-section-num">1</div>
+            <div class="form-section-title">참가 일정</div>
+          </div>
+
+          <div class="form-question">
+            <div class="q-label">참석 희망 일자 <span class="required">*</span></div>
+            <div class="q-hint">복수 선택 가능합니다</div>
+            <div class="radio-group">
+              <label class="radio-option"><input type="radio" name="date"><span class="radio-label">[90~95] 6/21 일요일 오후 12시</span></label>
+              <label class="radio-option"><input type="radio" name="date"><span class="radio-label">[93~98] 6/21 일요일 오후 3시</span></label>
+              <label class="radio-option"><input type="radio" name="date"><span class="radio-label">[97~02] 6/21 일요일 오후 6시</span></label>
+              <label class="radio-option"><input type="radio" name="date"><span class="radio-label">일정 상관없음</span></label>
+            </div>
+          </div>
+
+          <div class="form-question">
+            <div class="q-label">참석 유형 <span class="required">*</span></div>
+            <div class="radio-group">
+              <label class="radio-option"><input type="radio" name="type"><span class="radio-label">신규 참석</span></label>
+              <label class="radio-option"><input type="radio" name="type"><span class="radio-label">재참석</span></label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 2: Basic Info -->
+        <div class="form-section">
+          <div class="form-section-header">
+            <div class="form-section-num">2</div>
+            <div class="form-section-title">기본 정보</div>
+          </div>
+
+          <div class="form-question">
+            <div class="q-label">성별 <span class="required">*</span></div>
+            <div class="radio-group">
+              <label class="radio-option"><input type="radio" name="gender"><span class="radio-label">남성</span></label>
+              <label class="radio-option"><input type="radio" name="gender"><span class="radio-label">여성</span></label>
+            </div>
+          </div>
+
+          <div class="form-question">
+            <div class="q-label">이름 <span class="required">*</span></div>
+            <div class="q-hint">예시) 강○○</div>
+            <input type="text" class="q-input" placeholder="이름을 입력해주세요">
+          </div>
+
+          <div class="form-question">
+            <div class="q-label">출생연도 <span class="required">*</span></div>
+            <div class="q-hint">예시) 1993</div>
+            <input type="number" class="q-input" placeholder="숫자만 입력 가능합니다">
+          </div>
+
+          <div class="form-question">
+            <div class="q-label">연락처 / 카카오톡 ID <span class="required">*</span></div>
+            <div class="q-hint warn">잘못 적으시면 연락이 불가하니 확인 부탁드립니다</div>
+            <input type="text" class="q-input" placeholder="010-0000-0000 / ourpage">
+          </div>
+
+          <div class="form-question">
+            <div class="q-label">거주 지역 <span class="required">*</span></div>
+            <div class="q-hint">예시) 대구 남구</div>
+            <input type="text" class="q-input" placeholder="거주 지역을 입력해주세요">
+          </div>
+
+          <div class="form-question">
+            <div class="q-label">키 (cm) <span class="required">*</span></div>
+            <div class="q-hint">매칭 진행 시 중요한 기준입니다. 사실에 기반해 작성해주세요.</div>
+            <input type="number" class="q-input" placeholder="예시) 175">
+          </div>
+        </div>
+
+        <!-- Section 3: Career -->
+        <div class="form-section">
+          <div class="form-section-header">
+            <div class="form-section-num">3</div>
+            <div class="form-section-title">직장 정보</div>
+          </div>
+
+          <div class="form-question">
+            <div class="q-label">직장명 / 사업체명 <span class="required">*</span></div>
+            <div class="q-hint">예시) 삼성전자 / 과장, OO카페 운영</div>
+            <input type="text" class="q-input" placeholder="직장명과 직책을 입력해주세요">
+          </div>
+
+          <div class="form-question">
+            <div class="q-label">최종 학력 <span class="required">*</span></div>
+            <div class="radio-group">
+              <label class="radio-option"><input type="radio" name="edu"><span class="radio-label">고졸</span></label>
+              <label class="radio-option"><input type="radio" name="edu"><span class="radio-label">전문대졸</span></label>
+              <label class="radio-option"><input type="radio" name="edu"><span class="radio-label">3년제 대졸</span></label>
+              <label class="radio-option"><input type="radio" name="edu"><span class="radio-label">4년제 대졸</span></label>
+              <label class="radio-option"><input type="radio" name="edu"><span class="radio-label">석사</span></label>
+              <label class="radio-option"><input type="radio" name="edu"><span class="radio-label">박사</span></label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 4: Verification Photos -->
+        <div class="form-section">
+          <div class="form-section-header">
+            <div class="form-section-num">4</div>
+            <div class="form-section-title">인증 자료</div>
+          </div>
+
+          <div class="form-question">
+            <div class="q-label">신분증 첨부 <span class="required">*</span></div>
+            <div class="q-hint warn">※ 주민번호 뒷자리는 꼭 가려주세요</div>
+            <div class="q-hint">주민등록증 / 운전면허증 / 여권</div>
+            <label class="file-upload">
+              <div class="file-upload-icon">⬆</div>
+              <div class="file-upload-text">사진 첨부 (최대 3개)</div>
+              <div class="file-upload-meta">jpg, jpeg, png · 최대 10mb</div>
+              <input type="file" hidden accept="image/*" multiple>
+            </label>
+          </div>
+
+          <div class="form-question">
+            <div class="q-label">재직 인증 자료</div>
+            <div class="q-hint">명함 / 사업자등록증 / 사원증 / 재직증명서 / 학생증</div>
+            <label class="file-upload">
+              <div class="file-upload-icon">⬆</div>
+              <div class="file-upload-text">사진 첨부 (최대 3개)</div>
+              <div class="file-upload-meta">jpg, jpeg, png · 최대 10mb</div>
+              <input type="file" hidden accept="image/*" multiple>
+            </label>
+          </div>
+
+          <div class="form-question">
+            <div class="q-label">본인 사진 <span class="required">*</span></div>
+            <div class="q-hint">얼굴 사진 1장 + 전신 사진 1장<br>※ 과도한 보정 사진은 지양 부탁드립니다</div>
+            <label class="file-upload">
+              <div class="file-upload-icon">⬆</div>
+              <div class="file-upload-text">사진 첨부 (최대 2개)</div>
+              <div class="file-upload-meta">jpg, jpeg, png · 최대 10mb</div>
+              <input type="file" hidden accept="image/*" multiple>
+            </label>
+          </div>
+        </div>
+
+        <!-- Section 5: Preferences -->
+        <div class="form-section">
+          <div class="form-section-header">
+            <div class="form-section-num">5</div>
+            <div class="form-section-title">이상형 & 자기소개</div>
+          </div>
+
+          <div class="form-question">
+            <div class="q-label">선호하는 이성 나이대 <span class="required">*</span></div>
+            <div class="q-hint">예시) 95~00, 97~02</div>
+            <input type="text" class="q-input" placeholder="답변을 입력해주세요">
+          </div>
+
+          <div class="form-question">
+            <div class="q-label">자기소개 (선택)</div>
+            <div class="q-hint">성격 및 연애 스타일 / 평소 취미와 일상<br>쉬는 날 보내는 방식 / 원하는 관계의 분위기</div>
+            <textarea class="q-textarea" placeholder="자유롭게 자신을 소개해주세요"></textarea>
+          </div>
+
+          <div class="form-question">
+            <div class="q-label">나의 장점 / 어필 포인트 (선택)</div>
+            <div class="q-hint">예시) 꾸준히 운동하고 있어요 / 대화가 잘 통한다는 이야기를 자주 들어요</div>
+            <textarea class="q-textarea" placeholder="자신의 매력을 표현해주세요"></textarea>
+          </div>
+
+          <div class="form-question">
+            <div class="q-label">이상형 <span class="required">*</span></div>
+            <div class="q-hint">예시) 키 175 이상, 무교, 비흡연자</div>
+            <textarea class="q-textarea" placeholder="이상형을 구체적으로 작성해주세요"></textarea>
+          </div>
+
+          <div class="form-question">
+            <div class="q-label">가장 덜 중요하게 생각하는 조건 <span class="required">*</span></div>
+            <div class="radio-group">
+              <label class="radio-option"><input type="radio" name="leastImp"><span class="radio-label">외모</span></label>
+              <label class="radio-option"><input type="radio" name="leastImp"><span class="radio-label">키</span></label>
+              <label class="radio-option"><input type="radio" name="leastImp"><span class="radio-label">직업</span></label>
+              <label class="radio-option"><input type="radio" name="leastImp"><span class="radio-label">나이</span></label>
+              <label class="radio-option"><input type="radio" name="leastImp"><span class="radio-label">학력</span></label>
+            </div>
+          </div>
+
+          <div class="form-question">
+            <div class="q-label">피하고 싶은 사람 (선택)</div>
+            <div class="q-hint">예시) ○○년생 / 직장명 / 이름 등 상세히 기재</div>
+            <textarea class="q-textarea" placeholder="답변을 입력해주세요"></textarea>
+          </div>
+        </div>
+
+        <!-- Section 6: Drink -->
+        <div class="form-section">
+          <div class="form-section-header">
+            <div class="form-section-num">6</div>
+            <div class="form-section-title">음료 선택</div>
+          </div>
+
+          <div class="form-question">
+            <div class="q-label">음료 선택 <span class="required">*</span></div>
+            <div class="radio-group">
+              <label class="radio-option"><input type="radio" name="drink"><span class="radio-label">아메리카노 (아이스)</span></label>
+              <label class="radio-option"><input type="radio" name="drink"><span class="radio-label">아메리카노 (핫)</span></label>
+              <label class="radio-option"><input type="radio" name="drink"><span class="radio-label">오늘의 차 (아이스)</span></label>
+              <label class="radio-option"><input type="radio" name="drink"><span class="radio-label">오늘의 차 (핫)</span></label>
+              <label class="radio-option"><input type="radio" name="drink"><span class="radio-label">아이스티</span></label>
+              <label class="radio-option"><input type="radio" name="drink"><span class="radio-label">생수 (아이스)</span></label>
+              <label class="radio-option"><input type="radio" name="drink"><span class="radio-label">생수 (핫)</span></label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 7: Agreement -->
+        <div class="form-section">
+          <div class="form-section-header">
+            <div class="form-section-num">7</div>
+            <div class="form-section-title">동의 사항</div>
+          </div>
+
+          <div class="form-question">
+            <div class="q-label">현재 법적으로 미혼이신가요? <span class="required">*</span></div>
+            <div class="q-hint warn">허위 기재 시 서비스 이용 제한 및 법적 책임이 발생할 수 있습니다</div>
+            <div class="radio-group">
+              <label class="radio-option"><input type="radio" name="single"><span class="radio-label">네, 미혼입니다</span></label>
+            </div>
+          </div>
+
+          <div class="form-question">
+            <div class="q-label">신청서 제출 후 수정 불가 동의 <span class="required">*</span></div>
+            <div class="radio-group">
+              <label class="radio-option"><input type="checkbox"><span class="radio-label">작성 내용 확인 완료, 제출 후 수정 불가에 동의합니다</span></label>
+            </div>
+          </div>
+
+          <div class="form-question">
+            <div class="q-label">외적 기준 미충족 시 가입 제한 동의 <span class="required">*</span></div>
+            <div class="radio-group">
+              <label class="radio-option"><input type="checkbox"><span class="radio-label">외적 기준 및 자기관리 상태에 따라 가입이 제한될 수 있음을 이해합니다</span></label>
+            </div>
+          </div>
+
+          <div class="form-question">
+            <div class="q-label">개인정보 제공 동의서 <span class="required">*</span></div>
+            <div class="q-hint">성별, 이름, 출생연도, 연락처, 카카오톡 ID, 거주 지역, 키, 직장명, 직업, 신분증, 재직 인증 자료, 사진, 최종 학력</div>
+            <div class="radio-group">
+              <label class="radio-option"><input type="checkbox"><span class="radio-label">개인정보 수집·이용에 동의합니다</span></label>
+            </div>
+          </div>
+
+          <div class="form-question">
+            <div class="q-label">마케팅 정보 수신 동의 (선택)</div>
+            <div class="radio-group">
+              <label class="radio-option"><input type="radio" name="marketing"><span class="radio-label">동의합니다</span></label>
+              <label class="radio-option"><input type="radio" name="marketing"><span class="radio-label">동의하지 않습니다</span></label>
+            </div>
+          </div>
+
+          <div class="form-question">
+            <div class="q-label">환불 및 일정 변경 불가 안내 <span class="required">*</span></div>
+            <div class="q-hint warn">입금 완료 후 환불 어려움 / 일정 변경은 행사 3일 전까지 가능</div>
+            <div class="radio-group">
+              <label class="radio-option"><input type="checkbox"><span class="radio-label">동의합니다</span></label>
+            </div>
+          </div>
+
+          <div class="form-question">
+            <div class="q-label">참가 확정 안내 동의 <span class="required">*</span></div>
+            <div class="q-hint">신청서 검토 후 참가 확정자에게만 계좌·장소·시간 안내 문자 발송</div>
+            <div class="radio-group">
+              <label class="radio-option"><input type="checkbox"><span class="radio-label">동의합니다</span></label>
+            </div>
+          </div>
+
+          <div class="form-question">
+            <div class="q-label">카카오톡 안내 동의 <span class="required">*</span></div>
+            <div class="q-hint">카카오톡 ID [ourpage]로 연락드립니다</div>
+            <div class="radio-group">
+              <label class="radio-option"><input type="checkbox"><span class="radio-label">동의합니다</span></label>
+            </div>
+          </div>
+        </div>
+
+      </form>
+    </div>
+
+    <div class="form-submit-bar">
+      <button class="submit-btn" onclick="submitForm()">신청서 제출하기</button>
+    </div>
+
+  </div>
+
+</div>
+
+<script>
+  // Tab navigation
+  const tabs = document.querySelectorAll('.tab-item');
+  const sections = ['sec-about', 'sec-schedule', 'sec-verify', 'sec-process', 'sec-eligibility', 'sec-pricing']
+    .map(id => document.getElementById(id))
+    .filter(Boolean);
+
+  // Click → scroll to section
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      const targetId = tab.getAttribute('data-target');
+      const target = document.getElementById(targetId);
+      if (target) {
+        const tabNavHeight = document.querySelector('.tab-nav').offsetHeight;
+        const top = target.getBoundingClientRect().top + window.pageYOffset - tabNavHeight - 8;
+        window.scrollTo({ top, behavior: 'smooth' });
+      }
+    });
+  });
+
+  // Scroll → highlight current section in tabs
+  function updateActiveTab() {
+    if (!document.getElementById('landing').classList.contains('active')) return;
+    const scrollPos = window.pageYOffset + 120;
+    let currentSection = sections[0]?.id;
+    sections.forEach(section => {
+      if (section.offsetTop <= scrollPos) {
+        currentSection = section.id;
+      }
+    });
+    tabs.forEach(tab => {
+      const isActive = tab.getAttribute('data-target') === currentSection;
+      tab.classList.toggle('active', isActive);
+      // Auto-scroll the active tab into view in the horizontal tab bar
+      if (isActive) {
+        const tabScroll = document.getElementById('tabScroll');
+        const tabLeft = tab.offsetLeft;
+        const tabRight = tabLeft + tab.offsetWidth;
+        const visibleLeft = tabScroll.scrollLeft;
+        const visibleRight = visibleLeft + tabScroll.offsetWidth;
+        if (tabLeft < visibleLeft || tabRight > visibleRight) {
+          tabScroll.scrollTo({
+            left: tabLeft - 20,
+            behavior: 'smooth'
+          });
+        }
+      }
+    });
+  }
+
+  window.addEventListener('scroll', updateActiveTab, { passive: true });
+  updateActiveTab();
+
+  function goToForm() {
+    document.getElementById('landing').classList.remove('active');
+    document.getElementById('form-page').classList.add('active');
+    window.scrollTo(0, 0);
+  }
+
+  function goToLanding() {
+    document.getElementById('form-page').classList.remove('active');
+    document.getElementById('landing').classList.add('active');
+    window.scrollTo(0, 0);
+  }
+
+  function submitForm() {
+    alert('신청서가 접수되었습니다!\n검토 후 카카오톡 ID [ourpage]로 안내드릴게요.');
+  }
+
+  // Form progress tracking
+  const form = document.getElementById('applicationForm');
+  const progressBar = document.getElementById('progressBar');
+  if (form && progressBar) {
+    const updateProgress = () => {
+      const inputs = form.querySelectorAll('input, textarea');
+      let filled = 0;
+      let total = 0;
+      inputs.forEach(input => {
+        if (input.type === 'radio') {
+          const name = input.name;
+          if (name && !document.querySelector(`[data-counted="${name}"]`)) {
+            total++;
+            input.setAttribute('data-counted', name);
+            if (document.querySelector(`input[name="${name}"]:checked`)) {
+              filled++;
+            }
+          }
+        } else if (input.type === 'checkbox') {
+          total++;
+          if (input.checked) filled++;
+        } else if (input.type !== 'file') {
+          total++;
+          if (input.value.trim()) filled++;
+        }
+      });
+      const pct = total > 0 ? (filled / total) * 100 : 0;
+      progressBar.style.width = pct + '%';
+    };
+
+    form.addEventListener('input', updateProgress);
+    form.addEventListener('change', updateProgress);
+  }
+
+  // Smooth radio option click handling
+  document.querySelectorAll('.radio-option').forEach(option => {
+    option.addEventListener('click', function() {
+      const input = this.querySelector('input');
+      if (input && input.type === 'radio') {
+        document.querySelectorAll(`input[name="${input.name}"]`).forEach(r => {
+          r.closest('.radio-option').classList.remove('checked');
+        });
+        this.classList.add('checked');
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
